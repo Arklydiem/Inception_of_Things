@@ -59,5 +59,8 @@ kubectl apply -f /vagrant/apps/app3/confs/app3-service.yaml
 echo -e "${PURPLE}[DEPLOY] Applying Ingress...${NC}"
 kubectl apply -f /vagrant/confs/ingress.yaml
 
+echo -e "${BLUE}[INFO] Listing all resources...${NC}"
+kubectl get all --all-namespaces
+
 echo -e "${GREEN}[SUCCESS] All applications and ingress deployed successfully!${NC}"
 echo -e "${BLUE}[INFO] Script completed at $(date)${NC}"
