@@ -1,0 +1,30 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: app2-deployment
+  namespace: apps
+  labels:
+    app: app2
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: app2
+  template:
+    metadata:
+      labels:
+        app: app2
+    spec:
+      containers:
+        - name: app2
+          image: nginx:1.27.2-alpine
+          ports:
+            - containerPort: 80
+          volumeMounts:
+            - name: app2-index-volume
+              mountPath: /usr/share/nginx/html/index.html
+              subPath: index.html
+      volumes:
+        - name: app2-index-volume
+          configMap:
+            name: app2-index
