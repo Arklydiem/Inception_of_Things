@@ -25,7 +25,8 @@ spec:
                 name: app2-service
                 port:
                   number: 80
-    - http:
+    - host: app3.com
+      http:
         paths:
           - path: /
             pathType: Prefix
